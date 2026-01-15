@@ -60,7 +60,6 @@ Spring Boot–based banking application demonstrating **core banking operations*
 
 From the project root directory (`bankingApplication`), run:
 
-```bash
 mvn spring-boot:run
 
 
@@ -92,13 +91,13 @@ Accounts
 ➕ Create Account
 
 POST /accounts
-
+```
 {
   "name": "User",
   "email": "user@example.com",
   "balance": 500
 }
-
+```
 💰 Deposit
 POST /accounts/{id}/deposit?amount=100
 
@@ -195,7 +194,7 @@ Contains simple text-based audit trail of transactions
 
 🧪 Running Tests
 mvn test
-
+```
 📂 Project Structure (Key Files)
 src/main/java/com/infosys/bankingApplication/
 │
@@ -235,7 +234,7 @@ src/main/resources/
 │   └── style.css
 │
 └── transactions.txt
-
+```
 ###Notes
 
     -Gmail App Password is mandatory for email functionality
@@ -246,11 +245,7 @@ src/main/resources/
 ###Conclusion
 
     -This project demonstrates:
-
     -Real-world Spring Boot banking use case
-
     -Email integration
-
     -Clean layered architecture
-
     -REST APIs with Web UI
