@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bank Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #eef2f7, #dbe6f6);
+            margin: 0;
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #1f2d3d;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        a {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 12px 18px;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        th {
+            background: linear-gradient(135deg, #2c3e50, #4b6584);
+            color: white;
+            padding: 14px;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 14px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            color: #333;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background: #f7faff;
+        }
+
+        form {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin: 4px 0;
+        }
+
+        input[type="number"] {
+            width: 90px;
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            text-align: center;
+            outline: none;
+            transition: border 0.2s;
+        }
+
+        input[type="number"]:focus {
+            border-color: #4facfe;
+        }
+
+        button {
+            padding: 7px 14px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+            transition: transform 0.15s, box-shadow 0.15s;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+
+        form[action="/deposit"] button {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+        }
+
+        form[action="/withdraw"] button {
+            background: linear-gradient(135deg, #ff7675, #d63031);
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+        }
+
+        td:nth-child(4) {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>🏦 Banking Dashboard</h2>
+
+<a href="/create-account">➕ Create New Account</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Balance</th>
+        <th>Actions</th>
+    </tr>
+
+    <tr th:each="acc : ${accounts}">
+        <td th:text="${acc.id}"></td>
+        <td th:text="${acc.name}"></td>
+        <td th:text="${acc.email}"></td>
+        <td th:text="${acc.balance}"></td>
+
+        <td>
+            <form action="/deposit" method="post">
+                <input type="hidden" name="id" th:value="${acc.id}">
+                <input type="number" name="amount" placeholder="Deposit">
+                <button>Deposit</button>
+            </form>
+
+            <form action="/withdraw" method="post">
+                <input type="hidden" name="id" th:value="${acc.id}">
+                <input type="number" name="amount" placeholder="Withdraw">
+                <button>Withdraw</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
+<!DOCTYPE html>

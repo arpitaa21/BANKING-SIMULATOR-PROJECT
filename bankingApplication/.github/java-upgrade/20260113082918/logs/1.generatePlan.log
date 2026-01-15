@@ -1,0 +1,7 @@
+2026-01-13T08:29:18.173Z [INFO] Initializing project configuration...
+2026-01-13T08:29:18.175Z [INFO] Project C:\Users\panda\Desktop\bankingApplication\bankingApplication is a maven project, try to get java version from pom.xml
+2026-01-13T08:29:18.179Z [INFO] Project java version: 17
+2026-01-13T08:29:18.181Z [INFO] Maven project detected.
+2026-01-13T08:29:18.182Z [INFO] Build tool type: mvnw
+2026-01-13T08:29:18.230Z [ERROR] JDK is not provided or detected for Java 17.
+2026-01-13T09:00:24.885Z [ERROR] Failed to prepare project configuration or init upgrade options: Canceled.

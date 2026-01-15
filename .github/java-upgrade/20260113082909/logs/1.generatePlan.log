@@ -1,0 +1,6 @@
+2026-01-13T08:29:09.624Z [INFO] Initializing project configuration...
+2026-01-13T08:29:09.626Z [INFO] Project C:\Users\panda\Desktop\bankingApplication is not a maven project, try to get java version from gradle
+2026-01-13T08:29:09.783Z [INFO] Try to get java version from gradle config files: 
+2026-01-13T08:29:09.784Z [INFO] Try to get java version from gradle properties: undefined
+2026-01-13T08:29:09.786Z [INFO] Project java version: 8
+2026-01-13T08:29:09.853Z [ERROR] Failed to prepare project configuration or init upgrade options: Failed to detect build tool for the project at C:\Users\panda\Desktop\bankingApplication. There are child Maven/Gradle projects detected: "bankingApplication". Would you like to use one of them instead?.
