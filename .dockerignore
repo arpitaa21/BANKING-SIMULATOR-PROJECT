@@ -1,0 +1,10 @@
+.git
+.gitignore
+.mvn
+target
+transactions.txt
+account_*.txt
+.env
+.env.*
+frontend
+BANKING-SIMULATOR-PROJECT-master

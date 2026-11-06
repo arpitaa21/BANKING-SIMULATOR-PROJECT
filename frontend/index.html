@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6f3">
+  <title>Banking Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Banking Simulator home">
+      <span class="brand-mark" aria-hidden="true">B</span>
+      <span>northstar<span class="brand-light"> / banking</span></span>
+    </a>
+    <div class="connection"><span id="connection-dot" class="connection-dot"></span><span id="connection-label">Connecting…</span></div>
+  </header>
+
+  <main class="shell">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">ACCOUNT OVERVIEW</p>
+        <h1>Banking, made clear.</h1>
+        <p class="subhead">Manage accounts and move money in one simple workspace.</p>
+      </div>
+      <form id="api-settings" class="api-settings">
+        <label for="api-base">Backend address</label>
+        <div class="api-input-row">
+          <input id="api-base" type="url" placeholder="https://your-banking-api.example.com" autocomplete="url">
+          <button class="button button-dark" type="submit">Connect</button>
+        </div>
+      </form>
+    </section>
+
+    <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+
+    <section class="summary-grid" aria-label="Account summary">
+      <article class="summary-card summary-dark">
+        <p class="summary-label">TOTAL BALANCE</p>
+        <p id="total-balance" class="summary-value">₹0.00</p>
+        <p class="summary-foot">Across all simulator accounts</p>
+        <span class="summary-orbit" aria-hidden="true"></span>
+      </article>
+      <article class="summary-card">
+        <p class="summary-label">ACCOUNTS</p>
+        <p id="account-count" class="summary-value">0</p>
+        <p class="summary-foot">Open simulator accounts</p>
+      </article>
+      <article class="summary-card">
+        <p class="summary-label">LOW BALANCE WATCH</p>
+        <p id="low-count" class="summary-value">0</p>
+        <p class="summary-foot">Balances below ₹500</p>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <div class="panel accounts-panel">
+        <div class="panel-heading">
+          <div><p class="eyebrow">YOUR ACCOUNTS</p><h2>Accounts</h2></div>
+          <button id="refresh" class="button button-light" type="button">Refresh</button>
+        </div>
+        <div id="accounts" class="accounts-list" aria-live="polite">
+          <div class="empty-state">Connect to your backend to load accounts.</div>
+        </div>
+      </div>
+
+      <aside class="side-column">
+        <section class="panel form-panel">
+          <p class="eyebrow">GET STARTED</p><h2>New account</h2>
+          <form id="create-form" class="stack-form">
+            <label>Account holder<input name="name" type="text" maxlength="120" placeholder="Full name" required></label>
+            <label>Email address<input name="email" type="email" maxlength="254" placeholder="name@example.com" required></label>
+            <label>Opening balance<input name="balance" type="number" min="0" max="1000000" step="0.01" value="500.00" required></label>
+            <button class="button button-green" type="submit">Create account <span aria-hidden="true">↗</span></button>
+          </form>
+        </section>
+
+        <section class="panel form-panel transfer-panel">
+          <p class="eyebrow">MOVE MONEY</p><h2>Transfer funds</h2>
+          <form id="transfer-form" class="stack-form">
+            <label>From account<select name="fromId" required><option value="">Choose account</option></select></label>
+            <label>To account<select name="toId" required><option value="">Choose account</option></select></label>
+            <label>Amount<input name="amount" type="number" min="0.01" step="0.01" placeholder="0.00" required></label>
+            <button class="button button-dark" type="submit">Transfer funds <span aria-hidden="true">→</span></button>
+          </form>
+        </section>
+      </aside>
+    </section>
+
+    <footer>Banking Simulator <span>·</span> Demo application. Do not use real financial data.</footer>
+  </main>
+</body>
+</html>
