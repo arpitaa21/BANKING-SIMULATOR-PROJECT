@@ -3,10 +3,10 @@ const accountsNode = document.querySelector("#accounts");
 const noticeNode = document.querySelector("#notice");
 const connectionDot = document.querySelector("#connection-dot");
 const connectionLabel = document.querySelector("#connection-label");
-const localDefault = ["localhost", "127.0.0.1"].includes(window.location.hostname)
+const defaultApi = ["localhost", "127.0.0.1"].includes(window.location.hostname)
   ? "http://localhost:8080"
-  : "";
-const storedApi = localStorage.getItem("banking-api-base") || localDefault;
+  : "https://banking-simulator-api-arpitaa21.vercel.app";
+const storedApi = localStorage.getItem("banking-api-base") || defaultApi;
 apiInput.value = storedApi;
 
 function apiBase() {
